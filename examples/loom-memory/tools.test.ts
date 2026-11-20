@@ -109,6 +109,34 @@ describe('Loom preference tools', () => {
     ]);
     const result = await runDemo(writer, reader, 'test');
 
+    expect(result.writerModel.calls[1]?.request.input).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: 'function_call_result',
+          callId: 'write-preference',
+          output: {
+            type: 'text',
+            text: JSON.stringify({
+              ...service.receipt,
+              memory_key: 'examples/preferences/test',
+            }),
+          },
+        }),
+      ]),
+    );
+    expect(result.readerModel.calls[1]?.request.input).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: 'function_call_result',
+          callId: 'read-preference',
+          output: {
+            type: 'text',
+            text: JSON.stringify(service.getSearch()),
+          },
+        }),
+      ]),
+    );
+
     expect(result.receipt).toEqual({
       ...service.receipt,
       memory_key: 'examples/preferences/test',

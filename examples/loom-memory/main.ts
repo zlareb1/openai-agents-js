@@ -15,10 +15,15 @@ function toolResponse(model: ScriptedModel): Record<string, unknown> {
     throw new Error('The scripted run did not receive a tool result.');
   }
   const result = input.find((item) => item.type === 'function_call_result');
-  if (!result || typeof result.output !== 'string') {
+  if (
+    !result ||
+    typeof result.output === 'string' ||
+    Array.isArray(result.output) ||
+    result.output.type !== 'text'
+  ) {
     throw new Error('The scripted run did not receive the JSON tool result.');
   }
-  return JSON.parse(result.output) as Record<string, unknown>;
+  return JSON.parse(result.output.text) as Record<string, unknown>;
 }
 
 /** Exercise separate native agents without giving either a shared transcript. */
