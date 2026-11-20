@@ -115,6 +115,7 @@ function createProjects(reviewTestProfile: boolean) {
           'examples/tools/local-shell.test.ts',
           'examples/tools/apply-patch.test.ts',
           'examples/tools/computer-use-hitl.test.ts',
+          'examples/loom-memory/tools.test.ts',
           'examples/live/**/*.test.{ts,mjs}',
         ],
       },

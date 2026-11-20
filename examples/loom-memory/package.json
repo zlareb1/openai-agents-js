@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "loom-memory",
+  "type": "module",
+  "dependencies": {
+    "@clickhouse/loom": "1.2.0",
+    "@openai/agents": "workspace:*",
+    "zod": "^4.6.7"
+  },
+  "scripts": {
+    "build-check": "tsc --noEmit",
+    "start": "node main.ts"
+  },
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || >=26.0.0"
+  }
+}

@@ -493,6 +493,18 @@ importers:
         specifier: ^8.18.2
         version: 8.18.2
 
+  examples/loom-memory:
+    dependencies:
+      '@clickhouse/loom':
+        specifier: 1.2.0
+        version: 1.2.0
+      '@openai/agents':
+        specifier: workspace:*
+        version: link:../../packages/agents
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
+
   examples/mcp:
     dependencies:
       '@modelcontextprotocol/sdk':
@@ -1954,6 +1966,15 @@ packages:
   '@clack/prompts@1.7.0':
     resolution: {integrity: sha512-y7/yvZ2TPAnR9+jnc00klvNNLkJiXFFrQA/hlLCcxA9a2A4zQIOimyFQ9XfwYKiGD1fb5GY8vbKIIgO8d5Tb2A==}
     engines: {node: '>= 20.12.0'}
+
+  '@clickhouse/loom@1.2.0':
+    resolution: {integrity: sha512-wgsPt+RwtxZbHEDDlEVopkrSwQ+9WkyuQE5xt0dYnRr77XX12cKRnhulQ8lWjfHY1xeXX7ZGUmLoinCye70g1A==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-secrets-manager': ^3.0.0
+    peerDependenciesMeta:
+      '@aws-sdk/client-secrets-manager':
+        optional: true
 
   '@config-plugins/react-native-webrtc@15.0.2':
     resolution: {integrity: sha512-sH4T7Z4P2RowV91k9CEwEr0unn+396NBexxCNZwRXuJXwguDU1qZWpE6fcwN0730B8uiS83F7+CLTyhpC7qRHQ==}
@@ -11615,6 +11636,8 @@ snapshots:
       fast-string-width: 3.0.2
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
+
+  '@clickhouse/loom@1.2.0': {}
 
   '@config-plugins/react-native-webrtc@15.0.2(expo@58.0.21)':
     dependencies:
